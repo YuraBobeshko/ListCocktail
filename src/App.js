@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.scss';
 import { Provider } from "react-redux";
-import { store } from "./store";
 import ScrollUpButton from 'react-scroll-up-button';
+import { store } from "./store";
+import './App.scss';
 
 import Header from './components/Header/Header'
 import { Sidebar } from './components/Sidebar/index'
