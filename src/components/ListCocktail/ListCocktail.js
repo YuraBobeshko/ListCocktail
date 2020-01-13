@@ -3,7 +3,7 @@ import Card from "../Card/Card.js";
 import "./ListCocktail.scss";
 
 export default function ListCocktail(props) {
-  const { loadDataListCocktail, listCocktail, listType } = props;
+  const { loadDataListCocktail, listCocktail, listType, error } = props;
 
   const [loaded, setLoaded] = useState(false);
 
@@ -20,26 +20,26 @@ export default function ListCocktail(props) {
     }
   }, [listCocktail.length, listType, loadDataListCocktail, loaded]);
 
-  console.log(props)
-
+  if (error) {
+    return <h3>Пожалуйста перезагрузите страницу</h3>;
+  }
   return (
     <div>
       {listCocktail.map((cockyail, index) => {
-        return (listType.find(type => type.title === cockyail.type).sort ?
-          <div key={cockyail+index} className="list-cocktail">
+        return listType.find(type => type.title === cockyail.type).sort ? (
+          <div key={cockyail.id} className="list-cocktail">
             <p className="list-cocktail__heading">{cockyail.type}</p>
-            <div className="aaa">
+            <div className="list-cocktail__card">
               {cockyail.drinks.map(drink => (
                 <Card
-                  id={drink.idDrink}
+                  key={drink.idDrink}
                   title={drink.strDrink}
                   img={drink.strDrinkThumb}
                 />
               ))}
             </div>
           </div>
-          : null
-        );
+        ) : null;
       })}
     </div>
   );

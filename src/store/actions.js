@@ -1,3 +1,4 @@
+import uuid from 'uuid/v1';
 const API_URL_LIST_COCKTAIL = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php';
 const API_URL_LIST = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list';
 
@@ -43,7 +44,7 @@ export const loadDataListCocktail = param => dispatch => {
     method: 'GET'
   })
     .then(res => res.json())
-    .then(({ drinks }) => dispatch(saveListCocktail({type: param, drinks})))
+    .then(({ drinks }) => dispatch(saveListCocktail({type: param, drinks, id: uuid()})))
     .catch(error => dispatch(setError(error.message)))
 };
 

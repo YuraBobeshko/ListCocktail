@@ -16,12 +16,12 @@
     bottom: -10px;
     right: 0;
   }
-}
 
-.aaa {
-  padding-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 150px);
-  grid-column-gap: 85px;
-  grid-row-gap: 50px;
+  &__card {
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 150px);
+    grid-column-gap: 85px;
+    grid-row-gap: 50px;
+  }
 }
